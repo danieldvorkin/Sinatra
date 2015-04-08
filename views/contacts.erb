@@ -1,7 +1,9 @@
-<h1>Welcome to <%= @crm_app_name %></h1>
-<p>Main menu</p>
+<h1>All Contacts</h1>
+
 <ul>
-  <li><a href="/add_new_contact">Add New Contact</a></li>
-  <li><a href="../">Back</a></li>
-  <!-- please complete me with links to other actions -->
+	<% @contacts.each do |contact| %>
+  	<li><%= contact.first_name %> <%= contact.last_name %> - <%= contact.email %> :: <%= contact.note %></li>
+	<% end %>
 </ul>
+
+<h2><a href='../'> Back to MENU</a></h2>
