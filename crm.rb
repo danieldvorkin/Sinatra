@@ -1,5 +1,6 @@
 require 'sinatra'
 require_relative 'contact'
+require_relative 'roledex'
 
 get '/' do
 	@crm_app_name = "Daniel's CRM"
