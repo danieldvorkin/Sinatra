@@ -1,0 +1,10 @@
+<h1>Delete a contact</h1>
+
+<ul>
+	<% $rolodex.contacts.each do |contact| %>
+  	<li><%= contact.first_name %> <%= contact.last_name %>
+  	<input type="submit" name="_method" value="Delete"></li>
+	<% end %>
+</ul>
+
+<h2><a href='../'> Back to MENU</a></h2>
