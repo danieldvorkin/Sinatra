@@ -21,9 +21,9 @@ end
 
 post '/contacts' do
 	@crm_app_name = "Daniel's CRM"
-  	new_contact = Contact.new(params[:first_name], params[:last_name], params[:email], params[:note])
-  	$rolodex.add_contact(new_contact)
-  	redirect to('/contacts')
+  new_contact = Contact.new(params[:first_name], params[:last_name], params[:email], params[:note])
+  $rolodex.add_contact(new_contact)
+  redirect to('/contacts')
 end
 
 get '/contacts/delete' do
@@ -31,9 +31,9 @@ get '/contacts/delete' do
 	erb :delete_contact
 end
 
-post '/contacts' do
+delete '/contacts' do
 	@crm_app_name = "Daniel's CRM"
-	$rolodex.delete_contact(new_contact)
+	$rolodex.delete_contact(@contact)
 	redirect to ('/contacts')
 end
 
