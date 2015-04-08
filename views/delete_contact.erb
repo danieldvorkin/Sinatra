@@ -5,7 +5,7 @@
 	  	<li><%= contact.first_name %> <%= contact.last_name %>
 	  		<form action="/contacts/<%= contact.id %>" method="post">
 	    		<input name="_method" type="hidden" value="delete" />
-	  			<input type="submit" value="Delete"></input>
+	  			<input type="submit" value="Delete"/>
 			</form>
 		</li>
 	<% end %>

@@ -39,7 +39,18 @@ delete '/contacts/:id' do
 	redirect to ('/contacts')
 end
 
-get '/contacts/edit' do
+get '/contacts/edit/:id' do
 	@crm_app_name = "Daniel's CRM"
-	erb :edit_contact
+	@contact = $rolodex.find(params[:id].to_i)
+	erb :new_contact
+end
+
+post '/contacts/:id' do
+	@crm_app_name = "Daniel's CRM"
+	contact = $rolodex.find(params[:id].to_i)
+	contact.first_name = params[:first_name]
+	contact.last_name = params[:last_name]
+	contact.email = params[:email]
+	contact.note = params[:note]
+	redirect to ('/contacts')
 end
