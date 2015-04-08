@@ -1,4 +1,5 @@
 require 'sinatra'
+# require "sinatra/reloader"
 require_relative 'contact'
 require_relative 'rolodex'
 
@@ -31,9 +32,10 @@ get '/contacts/delete' do
 	erb :delete_contact
 end
 
-delete '/contacts' do
+delete '/contacts/:id' do
 	@crm_app_name = "Daniel's CRM"
-	$rolodex.delete_contact(@contact)
+	contact = $rolodex.find(params[:id].to_i)
+	$rolodex.delete_contact(contact)
 	redirect to ('/contacts')
 end
 
