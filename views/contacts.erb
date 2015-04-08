@@ -1,11 +1,7 @@
-<h1>All Contacts</h1>
-
 <ul>
 	<% $rolodex.contacts.each do |contact| %>
   	<li><%= contact.first_name %> <%= contact.last_name %>
-  		<a href="/contacts/edit/<%= contact.id %>">Edit this contact</a> 
+  		<a href="/contacts/edit/<%= contact.id %>"> **Edit** </a> 
   	</li>
 	<% end %>
 </ul>
-
-<h2><a href='../'> Back to MENU</a></h2>
