@@ -1,7 +1,11 @@
 <ul>
 	<% $rolodex.contacts.each do |contact| %>
   	<li><%= contact.first_name %> <%= contact.last_name %>
-  		<a href="/contacts/edit/<%= contact.id %>"> **Edit** </a> 
-  	</li>
+  	<a href="/contacts/edit/<%= contact.id %>"> **Edit** </a>  
+  		<ul>
+  			<li><i>Email:</i> <%= contact.email %> </li>
+  			<li><i>Note:</i> <%= contact.note %> </li>
+  		</ul>
+  	</li><hr>
 	<% end %>
 </ul>
