@@ -37,6 +37,16 @@ get '/contacts/new' do
 	erb :new_contact
 end
 
+post '/contacts/:id' do
+	contact = Contact.get(params[:id].to_i)
+	contact.first_name = params[:first_name]
+	contact.last_name = params[:last_name]
+	contact.email = params[:email]
+	contact.note = params[:note]
+	contact.save
+	redirect to ('/contacts')
+end
+
 post '/contacts' do
   contact = Contact.create(
     :first_name => params[:first_name],
@@ -44,6 +54,7 @@ post '/contacts' do
     :email => params[:email],
     :note => params[:note]
   )
+  contact.save
   redirect to('/contacts')
 end
 
@@ -81,13 +92,4 @@ end
 get '/contacts/:id' do
 	@contact = Contact.get(params[:id].to_i)
 	erb :new_contact
-end
-
-post '/contacts/:id' do
-	contact = Contact.get(params[:id].to_i)
-	contact.first_name = params[:first_name]
-	contact.last_name = params[:last_name]
-	contact.email = params[:email]
-	contact.note = params[:note]
-	redirect to ('/contacts')
 end
