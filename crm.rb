@@ -1,4 +1,8 @@
 require 'sinatra'
+require 'data-mapper'
+
+DataMapper.setup(:default, "sqlite3:database.sqlite3")
+
 # require "sinatra/reloader"
 require_relative 'contact'
 require_relative 'rolodex'
