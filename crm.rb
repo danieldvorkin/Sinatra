@@ -44,7 +44,6 @@ post '/contacts' do
     :email => params[:email],
     :note => params[:note]
   )
-  $rolodex.add_contact(contact)
   redirect to('/contacts')
 end
 
@@ -53,12 +52,10 @@ get '/contacts' do
 	erb :contacts
 end
 
-get '/contacts/:id' do
+get '/contacts/edit' do
 	@contacts = Contact.get(params[:id].to_i)
 	if @contacts
 		erb :contacts
-	else
-		raise Sinatra:NotFound
 	end
 end
 
@@ -81,7 +78,7 @@ delete '/contacts/:id' do
 	end
 end
 
-get '/contacts/edit/:id' do
+get '/contacts/:id' do
 	@contact = Contact.get(params[:id].to_i)
 	erb :new_contact
 end
