@@ -12,14 +12,21 @@
 				display: inline-block;
 			}
 			#jumboAsShit {
-				color: white;
-				background-color: Grey;
+				color: black;
+				background-color: white;
 				border: dashed 1px black;
+			}
+			#contact-well{
+				color: black;
+				background-color: white;
+			}
+			#navbar-main {
+				background-color: white;
 			}
 		</style>
 	</head>
 	<body>
-		<nav class="navbar navbar-default">
+		<nav class="navbar navbar-default" id="navbar-main">
 			<div class="container-fluid">
 				<div class="navbar-header">
       	</div>
@@ -36,8 +43,8 @@
 				<div class="navbar-collapse collapse">
 					<ul class="nav navbar-nav">
 						<li><a href="../">Home</a></li>
- 						<li><a href="/contacts/new">Add New Contact</a></li>
- 						<li><a href="/contacts">View all contacts</a></li>
+ 						<li><a href="/contacts">View :: Add :: Remove [Contact Database]</a></li>
+ 						<li><a href="/contacts/new">Add to [Contact Database]</a></li>
 					</ul>
 				</div>
 			</div>
@@ -45,7 +52,7 @@
 		<div class="well">
 			<%= yield %>
 		</div>
-		<footer class="footer">
+		<footer class="footer" id="navbar-main">
       <div class="container">
       	<p><i>DanDyCode</i></p>
       </div>

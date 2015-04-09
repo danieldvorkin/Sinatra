@@ -1,5 +1,5 @@
 <h1>Add New Contact</h1>
-<form class="form-vertical" action="/contacts<%=@contact ? "/#{@contact.id}" : ''%>" method="post">
+<form class="form-vertical" action="/contacts<%=@contact ? "/#{@contact.id}" : ''%>" method="post" id="new-form">
 	<div class="form-group">
 		<input type="text" class="form-control" name="first_name" placeholder="First Name" value="<%=@contact ? @contact.first_name : ''%>">
 	</div>
