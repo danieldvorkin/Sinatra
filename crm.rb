@@ -38,32 +38,56 @@ get '/contacts/new' do
 end
 
 post '/contacts' do
-  new_contact = Contact.new(params[:first_name], params[:last_name], params[:email], params[:note])
-  $rolodex.add_contact(new_contact)
+  contact = Contact.create(
+    :first_name => params[:first_name],
+    :last_name => params[:last_name],
+    :email => params[:email],
+    :note => params[:note]
+  )
+  $rolodex.add_contact(contact)
   redirect to('/contacts')
 end
 
 get '/contacts' do
+	@contacts = Contact.all
 	erb :contacts
 end
 
+get '/contacts/:id' do
+	@contacts = Contact.get(params[:id].to_i)
+	if @contacts
+		erb :contacts
+	else
+		raise Sinatra:NotFound
+	end
+end
+
 get '/contacts/delete' do
-	erb :delete_contact
+	@contacts = Contact.get(params[:id].to_i)
+	if @contacts
+		erb :contacts
+	else
+		raise Sinatra:NotFound
+	end
 end
 
 delete '/contacts/:id' do
-	contact = $rolodex.find(params[:id].to_i)
-	$rolodex.delete_contact(contact)
-	redirect to ('/contacts')
+	@contact = Contact.get(params[:id].to_i)
+	if @contact
+		@contact.destroy
+		redirect to '/contacts'
+	else
+		raise Sinatra:NotFound
+	end
 end
 
 get '/contacts/edit/:id' do
-	@contact = $rolodex.find(params[:id].to_i)
+	@contact = Contact.get(params[:id].to_i)
 	erb :new_contact
 end
 
 post '/contacts/:id' do
-	contact = $rolodex.find(params[:id].to_i)
+	contact = Contact.get(params[:id].to_i)
 	contact.first_name = params[:first_name]
 	contact.last_name = params[:last_name]
 	contact.email = params[:email]

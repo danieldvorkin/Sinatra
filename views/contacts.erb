@@ -1,8 +1,8 @@
 <ul>
-	<% $rolodex.contacts.each do |contact| %>
+	<% @contacts.each do |contact| %>
   	<li><%= contact.first_name %> <%= contact.last_name %>
   	<a class="btn btn-default" href="/contacts/edit/<%= contact.id %>">Edit</a>  
-  	<form action="/contacts/<%= contact.id %>" method="post" id="delete-contact-form">
+  	<form action="/contacts/ <%= contact.id %>" method="post" id="delete-contact-form">
   		<input name="_method" type="hidden" value="delete" />
   		<input class="btn btn-default" type="submit" value="Delete"/>
   	</form>
