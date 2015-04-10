@@ -26,7 +26,7 @@
 		</style>
 	</head>
 	<body>
-		<nav class="navbar navbar-default" id="navbar-main">
+		<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
 			<div class="container-fluid">
 				<div class="navbar-header">
       	</div>
@@ -43,12 +43,13 @@
 				<div class="navbar-collapse collapse">
 					<ul class="nav navbar-nav">
 						<li><a href="../">Home</a></li>
- 						<li><a href="/contacts">View :: Add :: Remove [Contact Database]</a></li>
+ 						<li><a href="/contacts">View/Add/Remove [Contact Database] 
+ 							<span class="badge"><%= @contacts ? @contacts.size : ' ' %></span></a></li>
  						<li><a href="/contacts/new">Add to [Contact Database]</a></li>
 					</ul>
 				</div>
 			</div>
-		</nav>
+		</nav><br />
 		<div class="well" id="main-well">
 			<%= yield %>
 		</div>

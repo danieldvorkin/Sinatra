@@ -4,7 +4,7 @@ class Rolodex # controller
 
 	def initialize
 		@contacts = []
-		@id = 1000
+		@id = 1
 	end
 
 	def add_contact(contact)
