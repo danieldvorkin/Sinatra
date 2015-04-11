@@ -12,16 +12,18 @@
 				display: inline-block;
 			}
 			#jumboAsShit {
-				color: black;
-				background-color: white;
+				color: white;
+				background-color: red;
 				border: dashed 1px red;
+				border-radius: 40px;
 			}
 			#main-well{
 				color: black;
-				background-color: orange;
+				background-color: Grey;
 			}
 			#navbar-main {
-				background-color: orange;
+				color: white;
+				background-color: Black;
 			}
 		</style>
 	</head>
@@ -44,13 +46,13 @@
 					<ul class="nav navbar-nav">
 						<li><a href="../">Home</a></li>
  						<li><a href="/contacts">View/Add/Remove [Contact Database] 
- 							<span class="badge"><%= @contacts ? @contacts.size : ' ' %></span></a></li>
+ 							<span class="badge"><%= @contacts ? @contacts.count : 'Click->Reveal' %></span></a></li>
  						<li><a href="/contacts/new">Add to [Contact Database]</a></li>
 					</ul>
 				</div>
 			</div>
 		</nav><br />
-		<div class="well" id="main-well">
+		<div class="well panel panel-default" id="main-well">
 			<%= yield %>
 		</div>
 		<footer class="footer" id="navbar-main">
